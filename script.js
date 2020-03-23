@@ -8,9 +8,7 @@ document.addEventListener("click", selectItems);
 
 
 function selectItems() {
-    let isLi = event.target["constructor"] == HTMLLIElement;
-
-    if (isLi) {
+    if (event.target.tagName === "LI") {
         event.target.classList.add("bold");
 
         let canAlert = !event.target.parentElement.classList.contains("noalert");
