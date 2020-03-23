@@ -14,8 +14,6 @@ function selectItems() {
         alert("Selected: \n \n" + event.target.innerText);
 
     } else {
-        for (let i = 0; i < allLis.length; i++) {
-            allLis[i].classList.remove("bold");
-        }
+        allLis.forEach(li => li.classList.remove("bold"));
     }
 }
