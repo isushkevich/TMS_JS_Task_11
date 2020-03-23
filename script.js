@@ -1,5 +1,6 @@
 "use strict";
 
+
 let allLis = document.querySelectorAll("li");
 
 
@@ -7,11 +8,17 @@ document.addEventListener("click", selectItems);
 
 
 function selectItems() {
-    let element = event.target["constructor"];
+    let isLi = event.target["constructor"] == HTMLLIElement;
 
-    if (element == HTMLLIElement) {
+    if (isLi) {
         event.target.classList.add("bold");
-        alert("Selected: \n \n" + event.target.innerText);
+
+        let canAlert = !event.target.parentElement.classList.contains("noalert");
+
+        if (canAlert) {
+            let firstItem = event.target.innerText.match(/^.*$/m)[0];
+            alert("Selected: \n \n" + firstItem);
+        }
 
     } else {
         allLis.forEach(li => li.classList.remove("bold"));
